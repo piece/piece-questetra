@@ -4,7 +4,6 @@
     "description": "A client for Questetra BPM Suite API",
     "keywords": ["questetra", "bpm", "workflow"],
     "homepage": "http://redmine.piece-framework.com/projects/piece-questetra",
-    "version": "1.0.0",
     "license": "BSD-2",
     "authors": [
         {
@@ -28,5 +27,10 @@
             "Piece\\Questetra": ""
         }
     },
-    "target-dir" : "Piece/Questetra"
+    "target-dir" : "Piece/Questetra",
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+    }
 }
