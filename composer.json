@@ -1,6 +1,6 @@
 {
     "name": "piece/piece-questetra",
-    "type": "library",
+    "type": "symfony-bundle",
     "description": "A client for Questetra BPM Suite API",
     "keywords": ["questetra", "bpm", "workflow"],
     "homepage": "http://redmine.piece-framework.com/projects/piece-questetra",
