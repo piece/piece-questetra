@@ -39,8 +39,6 @@ namespace Piece\Questetra\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
-use Symfony\Component\Validator\Constraints\Url;
-use Symfony\Component\Validator\Constraints\UrlValidator;
 
 /**
  * @package    Piece_Questetra
@@ -51,31 +49,6 @@ use Symfony\Component\Validator\Constraints\UrlValidator;
  */
 class Configuration implements ConfigurationInterface
 {
-    /**
-     * @var \Symfony\Component\Validator\Constraints\UrlValidator
-     */
-    public $urlValidator;
-
-    /**
-     * @var \Symfony\Component\Validator\Constraints\Url
-     */
-    public $url;
-
-    public function __construct()
-    {
-        $this->urlValidator = new UrlValidator();
-        $this->url = new Url();
-        $this->url->message = '%s is not a valid URL.';
-    }
-
-    /**
-     * @return \Symfony\Component\Validator\Constraints\UrlValidator
-     */
-    public function getUrlValidator()
-    {
-        return $this->urlValidator;
-    }
-
     public function getConfigTreeBuilder()
     {
         $self = $this;
@@ -85,10 +58,6 @@ class Configuration implements ConfigurationInterface
                 ->scalarNode('context_root')
                     ->isRequired()
                     ->cannotBeEmpty()
-                    ->validate()
-                        ->ifTrue(function ($v) use ($self) { return !$self->urlValidator->isValid($v, $self->url); })
-                        ->then(function ($v) use ($self) { throw new \InvalidArgumentException(sprintf(strtr($self->urlValidator->getMessageTemplate(), $self->urlValidator->getMessageParameters()), json_encode($v))); })
-                    ->end()
                 ->end()
                 ->arrayNode('authentication')
                     ->isRequired()
