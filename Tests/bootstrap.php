@@ -35,7 +35,7 @@
  * @since      File available since Release 0.1.0
  */
 
-error_reporting(error_reporting() & ~E_STRICT & ~E_DEPRECATED);
+error_reporting(error_reporting() | E_STRICT | E_DEPRECATED);
 
 spl_autoload_register(function ($class) {
     $bundleNamespace = 'Piece\Questetra\\';
