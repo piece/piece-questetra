@@ -51,7 +51,6 @@ class Configuration implements ConfigurationInterface
 {
     public function getConfigTreeBuilder()
     {
-        $self = $this;
         $treeBuilder = new TreeBuilder();
         $treeBuilder->root('piece_questetra')
             ->children()
