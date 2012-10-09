@@ -37,12 +37,10 @@ parameters:
 services:
   # Domain Components
   piece_questetra.process_execution:
-    scope: prototype
     class: "%piece_questetra.process_execution.class%"
     arguments:
       - "@piece_questetra.questetra_client"
   piece_questetra.questetra_client:
-    scope: prototype
     class: "%piece_questetra.questetra_client.class%"
     calls:
       - [ setRequestContext, [ "@piece_questetra.request_context" ] ]
@@ -53,7 +51,6 @@ services:
       - "%piece_questetra.user_id%"
       - "%piece_questetra.password%"
   piece_questetra.search:
-    scope: prototype
     class: "%piece_questetra.search.class%"
     arguments:
       - "@piece_questetra.questetra_client"
