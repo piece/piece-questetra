@@ -4,7 +4,7 @@
     "description": "A client for Questetra BPM Suite API",
     "keywords": ["questetra", "bpm", "workflow"],
     "homepage": "http://piece-framework.com/projects/piece-questetra",
-    "license": "BSD-2",
+    "license": "BSD-2-Clause",
     "authors": [
         {
             "name": "KUBO Atsuhiro",
